@@ -15,12 +15,12 @@
   <p>Percentage Visitor Wins: <%=stat_tracker.percentage_visitor_wins%></p>
   <p>Percentage Ties: <%=stat_tracker.percentage_ties%></p>
   <p>Count of Games by Season:</p>
-  <table>
     <% stat_tracker.count_of_games_by_season.each do |season, count| %>
-      <td> <%= "#{season}: #{count}    " %> </td>
-      
+      <p> <%= "#{season[0,4]} - #{season[4,4]}: #{count}" %> </p>
     <% end %>
-  </table>
   <p>Average Goals per Game: <%=stat_tracker.average_goals_per_game%></p>
-  <p>Average Goals by Season: <%=stat_tracker.average_goals_by_season%></p>
+  <p>Average Goals by Season:</p>
+    <% stat_tracker.average_goals_by_season.each do |season, goals| %>
+      <p> <%= "#{season[0,4]} - #{season[4,4]}: #{goals}" %> </p>
+    <% end %>
 </body>

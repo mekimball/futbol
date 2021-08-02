@@ -16,6 +16,7 @@ class StatTracker
   attr_reader :games,
               :teams,
               :game_teams
+              
   def initialize(stats)
     @games      = stats[:games]
     @teams      = stats[:teams]

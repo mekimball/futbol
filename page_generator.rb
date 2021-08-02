@@ -5,8 +5,6 @@ class PageGenerator
   attr_reader :stat_tracker, :template
   def initialize(locations)
     @stat_tracker = StatTracker.from_csv(locations)
-    # @home_template = File.open('template.html', 'rb', &:read)
-    # @game_template = File.open('template.html', 'rb', &:read)
   end
 
   def render(template_name)
@@ -29,11 +27,13 @@ locations = {
   teams:      team_path,
   game_teams: game_teams_path
   }
-home_generator = PageGenerator.new(locations).render(home_template)
-game_generator = PageGenerator.new(locations).render(game_template)
-league_generator = PageGenerator.new(locations).render(league_template)
-season_generator = PageGenerator.new(locations).render(season_template)
-team_generator = PageGenerator.new(locations).render(team_template)
+
+generator = PageGenerator.new(locations)
+home_generator = generator.render(home_template)
+game_generator = generator.render(game_template)
+league_generator = generator.render(league_template)
+season_generator = generator.render(season_template)
+team_generator = generator.render(team_template)
 
 File.write("./webpage/index.html", home_generator)
 File.write("./webpage/game.html", game_generator)
