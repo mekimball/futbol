@@ -89,19 +89,26 @@ module TeamStatistics
   end
 
   def games_against_rivals(team_id)
+    all_games = home_games_rivals(team_id).merge(away_games_rivals(team_id)){|k,v1,v2|[v1,v2].flatten}
+    all_games
+  end
+
+  def home_games_rivals(team_id)
     find_games_by_team_id(team_id).each_with_object({}) do |game, rival_games|
-      if game.away_team_id != team_id
-        if rival_games[game.away_team_id].nil?
-          rival_games[game.away_team_id] = [game]
-        else
-          rival_games[game.away_team_id] << game
-        end
-      else
-        if rival_games[game.home_team_id].nil?
-          rival_games[game.home_team_id] = [game]
-        else
-          rival_games[game.home_team_id] << game
-        end
+      if game.home_team_id == team_id && rival_games[game.away_team_id].nil?
+        rival_games[game.away_team_id] = [game]
+      elsif game.home_team_id == team_id
+        rival_games[game.away_team_id] << game
+      end
+    end
+  end
+
+  def away_games_rivals(team_id)
+    find_games_by_team_id(team_id).each_with_object({}) do |game, rival_games|
+      if game.away_team_id == team_id && rival_games[game.home_team_id].nil?
+        rival_games[game.home_team_id] = [game]
+      elsif game.away_team_id == team_id
+        rival_games[game.home_team_id] << game
       end
     end
   end
