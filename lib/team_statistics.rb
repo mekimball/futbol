@@ -114,18 +114,24 @@ module TeamStatistics
   end
 
   def wins_against_rivals(team_id)
+    wins_against_rivals = wins_hash(team_id)
+    games_against_rivals(team_id).each do |rival, games|
+      games.each do |game|
+        wins_against_rivals[rival][0] += 1
+        if (game.away_team_id == team_id && game.away_goals > game.home_goals) ||
+          (game.home_team_id == team_id && game.home_goals > game.away_goals)
+          wins_against_rivals[rival][1] += 1
+        end
+      end
+    end
+    wins_against_rivals
+  end
+
+  def wins_hash(team_id)
     wins_against_rivals = {}
     games_against_rivals(team_id).each do |rival, games|
       if wins_against_rivals[rival].nil?
-        wins_against_rivals[rival] = [0, 0]# total games, wins
-      end
-      games.each do |game|
-        wins_against_rivals[rival][0] += 1
-        if game.away_team_id == team_id && game.away_goals > game.home_goals
-          wins_against_rivals[rival][1] += 1
-        elsif game.home_team_id == team_id && game.home_goals > game.away_goals
-          wins_against_rivals[rival][1] += 1
-        end
+        wins_against_rivals[rival] = [0, 0]
       end
     end
     wins_against_rivals
