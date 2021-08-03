@@ -1,5 +1,5 @@
-require './lib/stat_tracker'
 require './spec/spec_helper'
+require './lib/stat_tracker'
 require './lib/team_statistics'
 
 RSpec.describe TeamStatistics do

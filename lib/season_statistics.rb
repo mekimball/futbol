@@ -16,7 +16,7 @@ module SeasonStatistics
   def coach_stats_by_season(season)
     game_teams_by_season(season).each_with_object({}) do |game_team, coaches|
       if coaches[game_team.head_coach].nil?
-        coaches[game_team.head_coach] = [0, 0] #[game count, win count]
+        coaches[game_team.head_coach] = [0, 0]
       end
       coaches[game_team.head_coach][0] += 1
       coaches[game_team.head_coach][1] += 1 if game_team.result == "WIN"
@@ -24,15 +24,15 @@ module SeasonStatistics
   end
 
   def winningest_coach(season)
-    best_coach = coach_stats_by_season(season).max_by do |coach, stats|
-      stats[1].to_f / stats[0]
+    best_coach = coach_stats_by_season(season).max_by do |coach, (game_count, win_count)|
+      win_count.to_f / game_count
     end
     best_coach.first
   end
 
   def worst_coach(season)
-    baddest_coach = coach_stats_by_season(season).min_by do |coach, stats|
-      stats[1].to_f / stats[0]
+    baddest_coach = coach_stats_by_season(season).min_by do |coach, (game_count, win_count)|
+      win_count.to_f / game_count
     end
     baddest_coach.first
   end
@@ -48,15 +48,15 @@ module SeasonStatistics
   end
 
   def most_accurate_team(season)
-    most_accurate = team_shots_by_season(season).max_by do |team, stats|
-      stats[0] / stats[1].to_f
+    most_accurate = team_shots_by_season(season).max_by do |team, (goals, shots)|
+      goals / shots.to_f
     end
     team_name_by_team_id(most_accurate.first)
   end
 
   def least_accurate_team(season)
-    least_accurate = team_shots_by_season(season).min_by do |team, stats|
-      stats[0] / stats[1].to_f
+    least_accurate = team_shots_by_season(season).min_by do |team, (goals, shots)|
+      goals / shots.to_f
     end
     team_name_by_team_id(least_accurate.first)
   end

@@ -1,13 +1,14 @@
+require './spec/spec_helper'
 require './lib/team'
 
 RSpec.describe Team do
   it 'exists' do
     info = {
-      team_id:      "1", 
-      franchiseid:  "23", 
-      teamname:     "Atlanta United", 
-      abbreviation: "ATL", 
-      stadium:      "Mercedes-Benz Stadium", 
+      team_id:      "1",
+      franchiseid:  "23",
+      teamname:     "Atlanta United",
+      abbreviation: "ATL",
+      stadium:      "Mercedes-Benz Stadium",
       link:         "/api/v1/teams/1"
       }
     team = Team.new(info)
@@ -16,11 +17,11 @@ RSpec.describe Team do
 
   it 'game has data' do
     info = {
-      team_id:      "1", 
-      franchiseid:  "23", 
-      teamname:     "Atlanta United", 
-      abbreviation: "ATL", 
-      stadium:      "Mercedes-Benz Stadium", 
+      team_id:      "1",
+      franchiseid:  "23",
+      teamname:     "Atlanta United",
+      abbreviation: "ATL",
+      stadium:      "Mercedes-Benz Stadium",
       link:         "/api/v1/teams/1"
       }
     team = Team.new(info)

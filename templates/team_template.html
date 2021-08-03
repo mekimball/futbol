@@ -18,7 +18,7 @@
 
   <% teams_to_display = ["1", "8", "54", "17"] %>
   <% teams_to_display.each do |team| %>
-    <h5> <%= stat_tracker.team_name_by_team_id(team) %> </h5>
+    <h4> <%= stat_tracker.team_name_by_team_id(team) %> </h4>
     <p>Best Season : <%=stat_tracker.best_season(team)%></p>
     <p>Worst Season : <%=stat_tracker.worst_season(team)%></p>
     <p>Win Percentage : <%=stat_tracker.average_win_percentage(team)%></p>
