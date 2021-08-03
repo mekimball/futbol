@@ -61,29 +61,29 @@ module LeagueStatistics
   end
 
   def highest_scoring_visitor
-    highest_visitor = games_by_hoa("away").max_by do |team, stats|
-      stats[1] / stats[0].to_f
+    highest_visitor = games_by_hoa("away").max_by do |team, (game_count, goals)|
+      goals / game_count.to_f
     end
     team_name_by_team_id(highest_visitor.first)
   end
 
   def highest_scoring_home_team
-    highest_home_team = games_by_hoa("home").max_by do |team, stats|
-      stats[1] / stats[0].to_f
+    highest_home_team = games_by_hoa("home").max_by do |team, (game_count, goals)|
+      goals / game_count.to_f
     end
     team_name_by_team_id(highest_home_team.first)
   end
 
   def lowest_scoring_visitor
-    lowest_away_team = games_by_hoa("away").min_by do |team, stats|
-      stats[1] / stats[0].to_f
+    lowest_away_team = games_by_hoa("away").min_by do |team, (game_count, goals)|
+      goals / game_count.to_f
     end
     team_name_by_team_id(lowest_away_team.first)
   end
 
   def lowest_scoring_home_team
-    lowest_home_team = games_by_hoa("home").min_by do |team, stats|
-      stats[1] / stats[0].to_f
+    lowest_home_team = games_by_hoa("home").min_by do |team, (game_count, goals)|
+      goals / game_count.to_f
     end
     team_name_by_team_id(lowest_home_team.first)
   end

@@ -1,5 +1,5 @@
-require './lib/stat_tracker'
 require './spec/spec_helper'
+require './lib/stat_tracker'
 require './lib/league_statistics'
 
 RSpec.describe LeagueStatistics do
@@ -13,7 +13,7 @@ RSpec.describe LeagueStatistics do
       teams:      team_path,
       game_teams: game_teams_path
       }
-      
+
     stat_tracker = StatTracker.from_csv(locations)
 
     it '#count_of_teams' do

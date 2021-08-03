@@ -21,13 +21,9 @@ module TeamStatistics
   end
 
   def team_win?(team_id, game)
-    away = game.away_team_id == team_id && game.away_goals > game.home_goals
-    home = game.home_team_id == team_id && game.home_goals > game.away_goals
-    if home || away
-      true
-    else
-      false
-    end
+    away_win = game.away_team_id == team_id && game.away_goals > game.home_goals
+    home_win = game.home_team_id == team_id && game.home_goals > game.away_goals
+    home_win || away_win
   end
 
   def find_win_count(team_id)
@@ -43,15 +39,15 @@ module TeamStatistics
   end
 
   def best_season(team_id)
-    best_season = find_win_count(team_id).max_by do |season, wins|
-      wins[1] / wins[0].to_f
+    best_season = find_win_count(team_id).max_by do |season, (game, wins)|
+      wins / game.to_f
     end
     best_season.first
   end
 
   def worst_season(team_id)
-    worst_season = find_win_count(team_id).min_by do |season, wins|
-      wins[1] / wins[0].to_f
+    worst_season = find_win_count(team_id).min_by do |season, (game, wins)|
+      wins / game.to_f
     end
     worst_season.first
   end
@@ -138,15 +134,15 @@ module TeamStatistics
   end
 
   def favorite_opponent(team_id)
-    favorite = wins_against_rivals(team_id).max_by do |team, stats|
-      stats[1].to_f / stats[0]
+    favorite = wins_against_rivals(team_id).max_by do |team, (wins, games)|
+      games.to_f / wins
     end
     team_name_by_team_id(favorite.first)
   end
 
   def rival(team_id)
-    least_favorite = wins_against_rivals(team_id).min_by do |team, stats|
-      stats[1].to_f / stats[0]
+    least_favorite = wins_against_rivals(team_id).min_by do |team, (wins, games)|
+      games.to_f / wins
     end
     team_name_by_team_id(least_favorite.first)
   end

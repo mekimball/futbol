@@ -15,7 +15,7 @@
   <h3>Season Statistics</h3>
 
   <% stat_tracker.count_of_games_by_season.each do |season, games| %>
-    <h5> Season : <%= season[0,4] %> - <%= season[4,4] %></h5>
+    <h4> Season : <%= season[0,4] %> - <%= season[4,4] %></h4>
     <p> Best Coach : <%=stat_tracker.winningest_coach(season)%></p>
     <p> Worst Coach : <%=stat_tracker.worst_coach(season)%></p>
     <p> Most Accurate Team : <%=stat_tracker.most_accurate_team(season)%></p>

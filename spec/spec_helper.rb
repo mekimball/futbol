@@ -1,3 +1,3 @@
-require 'simplecov'
 require 'rspec'
+require 'simplecov'
 SimpleCov.start
