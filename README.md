@@ -23,7 +23,7 @@ This project is  a program dedicated to calculating soccer statistsics. It takes
 ## Technologies
 Project is created with:
 * Ruby version: 2.7.2
-* HTMl 5
+* HTML 5
 ## Setup
 To run this program, save a copy of this repository locally. In the MacOS
 application 'Terminal,' navigate into the _futbol_ directory.
