@@ -1,0 +1,33 @@
+team_id,franchiseId,teamName,abbreviation,Stadium,link
+1,23,Atlanta United,ATL,Mercedes-Benz Stadium,/api/v1/teams/1
+4,16,Chicago Fire,CHI,SeatGeek Stadium,/api/v1/teams/4
+26,14,FC Cincinnati,CIN,Nippert Stadium,/api/v1/teams/26
+14,31,DC United,DC,Audi Field,/api/v1/teams/14
+6,6,FC Dallas,DAL,Toyota Stadium,/api/v1/teams/6
+3,10,Houston Dynamo,HOU,BBVA Stadium,/api/v1/teams/3
+5,17,Sporting Kansas City,SKC,Children's Mercy Park,/api/v1/teams/5
+17,12,LA Galaxy,LA,Dignity Health Sports Park,/api/v1/teams/17
+28,29,Los Angeles FC,LFC,Banc of California Stadium,/api/v1/teams/28
+18,34,Minnesota United FC,MIN,Allianz Field,/api/v1/teams/18
+23,20,Montreal Impact,MTL,Saputo Stadium,/api/v1/teams/23
+16,11,New England Revolution,NE,Gillette Stadium,/api/v1/teams/16
+9,30,New York City FC,NYC,Yankee Stadium,/api/v1/teams/9
+8,1,New York Red Bulls,NY,Red Bull Arena,/api/v1/teams/8
+30,37,Orlando City SC,ORL,Exploria Stadium,/api/v1/teams/30
+15,24,Portland Timbers,POR,Providence Park,/api/v1/teams/15
+19,18,Philadelphia Union,PHI,Talen Energy Stadium,/api/v1/teams/19
+24,32,Real Salt Lake,RSL,Rio Tinto Stadium,/api/v1/teams/24
+27,28,San Jose Earthquakes,SJ,Avaya Stadium,/api/v1/teams/27
+2,22,Seattle Sounders FC,SEA,Centruy Link Field,/api/v1/teams/2
+20,21,Toronto FC,TOR,BMO Field,/api/v1/teams/20
+21,27,Vancouver Whitecaps FC,VAN,BC Place,/api/v1/teams/21
+25,15,Chicago Red Stars,CRS,SeatGeek Stadium,/api/v1/teams/25
+13,33,Houston Dash,HOD,BBVA Stadium,/api/v1/teams/13
+10,5,North Carolina Courage,NCC,WakeMed Soccer Park,/api/v1/teams/10
+29,36,Orlando Pride,FLP,Exploria Stadium,/api/v1/teams/29
+52,35,Portland Thorns FC,ORT,Providence Park,/api/v1/teams/52
+54,38,Reign FC,RFC,Cheney Stadium,/api/v1/teams/54
+12,26,Sky Blue FC,SBL,Yurcak Field,/api/v1/teams/12
+7,19,Utah Royals FC,URF,Rio Tinto Stadium,/api/v1/teams/7
+22,25,Washington Spirit FC,WAS,Maryland SoccerPlex,/api/v1/teams/22
+53,28,Columbus Crew SC,CCS,Mapfre Stadium,/api/v1/teams/53

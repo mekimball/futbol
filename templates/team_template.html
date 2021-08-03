@@ -1,0 +1,30 @@
+<head>
+  <title>Futbol</title>
+</head>
+
+<body>
+  <header>
+    <h1> Futbol Statistics</h1>
+  </header>
+
+  <a href="./index.html">Home</a>
+  <a href="./game.html">Game Stats</a>
+  <a href="./league.html">League Stats</a>
+  <a href="./season.html">Season Stats</a>
+
+  <h3>Team Statistics</h3>
+
+  <p> Check out some of our favorite teams stats! </p>
+
+  <% teams_to_display = ["1", "8", "54", "17"] %>
+  <% teams_to_display.each do |team| %>
+    <h5> <%= stat_tracker.team_name_by_team_id(team) %> </h5>
+    <p>Best Season : <%=stat_tracker.best_season(team)%></p>
+    <p>Worst Season : <%=stat_tracker.worst_season(team)%></p>
+    <p>Win Percentage : <%=stat_tracker.average_win_percentage(team)%></p>
+    <p>Most Goals Scored : <%=stat_tracker.most_goals_scored(team)%></p>
+    <p>Fewest Goals Scored : <%=stat_tracker.fewest_goals_scored(team)%></p>
+    <p>Favorite Opponent : <%=stat_tracker.favorite_opponent(team)%></p>
+    <p>Rival : <%=stat_tracker.rival(team)%> </p>
+  <% end %>
+</body>

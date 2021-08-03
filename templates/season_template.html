@@ -1,0 +1,26 @@
+<head>
+  <title>Futbol</title>
+</head>
+
+<body>
+  <header>
+    <h1> Futbol Statistics</h1>
+  </header>
+
+  <a href="./index.html">Home</a>
+  <a href="./game.html">Game Stats</a>
+  <a href="./league.html">League Stats</a>
+  <a href="./team.html">Team Stats</a>
+
+  <h3>Season Statistics</h3>
+
+  <% stat_tracker.count_of_games_by_season.each do |season, games| %>
+    <h5> Season : <%= season[0,4] %> - <%= season[4,4] %></h5>
+    <p> Best Coach : <%=stat_tracker.winningest_coach(season)%></p>
+    <p> Worst Coach : <%=stat_tracker.worst_coach(season)%></p>
+    <p> Most Accurate Team : <%=stat_tracker.most_accurate_team(season)%></p>
+    <p> Least Accurate Team : <%=stat_tracker.least_accurate_team(season)%></p>
+    <p> Most Tackles : <%=stat_tracker.most_tackles(season)%></p>
+    <p> Fewest Tackles : <%=stat_tracker.fewest_tackles(season)%></p>
+  <% end %>
+</body>

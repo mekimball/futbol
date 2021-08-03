@@ -1,50 +1,43 @@
 require 'csv'
-require './lib/game'
-require './lib/team'
-require './lib/game_team'
+require_relative './game'
+require_relative './team'
+require_relative './game_team'
+require_relative './game_statistics'
+require_relative './league_statistics'
+require_relative './season_statistics'
+require_relative './team_statistics'
 
 class StatTracker
-  attr_reader :games, :teams, :game_teams
+  include GameStatistics
+  include LeagueStatistics
+  include SeasonStatistics
+  include TeamStatistics
+
+  attr_reader :games,
+              :teams,
+              :game_teams
+              
   def initialize(stats)
-    @games = stats[:games]
-    @teams = stats[:teams]
+    @games      = stats[:games]
+    @teams      = stats[:teams]
     @game_teams = stats[:game_teams]
   end
 
   def self.from_csv(locations)
-    stats = {}
-    stats[:games] = create_game_csv(locations)
-    stats[:teams] = create_teams_csv(locations)
-    stats[:game_teams] = create_game_teams_csv(locations)
+    stats               = {}
+    stats[:games]       = create_obj_csv(locations[:games], Game)
+    stats[:teams]       = create_obj_csv(locations[:teams], Team)
+    stats[:game_teams]  = create_obj_csv(locations[:game_teams], GameTeam)
 
     StatTracker.new(stats)
-
   end
 
-  def self.create_game_csv(locations)
-    games = []
-    game_csv = CSV.foreach(locations[:games], headers: true) do |row|
-      game = Game.new(row)
-      games << game
+  def self.create_obj_csv(locations, obj_type)
+    objects = []
+    CSV.foreach(locations, headers: true, header_converters: :symbol) do |row|
+      object = obj_type.new(row)
+      objects << object
     end
-    games
-  end
-
-  def self.create_teams_csv(locations)
-    teams = []
-    team_csv = CSV.foreach(locations[:teams], headers: true) do |row|
-      team = Team.new(row)
-      teams << team
-    end
-    teams
-  end
-
-  def self.create_game_teams_csv(locations)
-    game_teams = []
-    game_team_csv = CSV.foreach(locations[:game_teams], headers: true) do |row|
-      game_team = GameTeam.new(row)
-      game_teams << game_team
-    end
-    game_teams
+    objects
   end
 end
