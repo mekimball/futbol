@@ -58,7 +58,7 @@ RSpec.describe GameStatistics do
                    "20152016"=>[87, 363],
                    "20132014"=>[123, 525],
                    "20172018"=>[135, 592]}
-                   
+
       expect(stat_tracker.all_goals_by_season).to eq(expected)
     end
 

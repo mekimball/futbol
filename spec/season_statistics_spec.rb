@@ -16,14 +16,6 @@ RSpec.describe SeasonStatistics do
 
     stat_tracker = StatTracker.from_csv(locations)
 
-    it '#winningest_coach' do
-      expect(stat_tracker.winningest_coach("20132014")).to eq("Claude Noel")
-    end
-
-    it '#worst_coach' do
-      expect(stat_tracker.worst_coach("20132014")).to eq("Mike Babcock")
-    end
-
     it '#game_ids_by_season' do
       expect(stat_tracker.game_ids_by_season("20122013").size).to eq(111)
     end
@@ -34,6 +26,14 @@ RSpec.describe SeasonStatistics do
 
     it '#coach_stats_by_season' do
       expect(stat_tracker.coach_stats_by_season("20122013")["John Tortorella"]).to eq([14, 2])
+    end
+
+    it '#winningest_coach' do
+      expect(stat_tracker.winningest_coach("20132014")).to eq("Claude Noel")
+    end
+
+    it '#worst_coach' do
+      expect(stat_tracker.worst_coach("20132014")).to eq("Mike Babcock")
     end
 
     it '#team_shots_by_season' do

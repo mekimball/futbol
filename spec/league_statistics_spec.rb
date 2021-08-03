@@ -13,7 +13,7 @@ RSpec.describe LeagueStatistics do
       teams:      team_path,
       game_teams: game_teams_path
       }
-      
+
     stat_tracker = StatTracker.from_csv(locations)
 
     it '#count_of_teams' do
@@ -24,7 +24,6 @@ RSpec.describe LeagueStatistics do
       expect(stat_tracker.games_by_team_id).to be_a Hash
     end
 
-  #mock and stub
     it '#goals_per_team' do
       expect(stat_tracker.goals_per_team["3"]).to eq([2, 2, 1, 2, 1, 1, 0, 2, 2, 1, 1, 3, 2, 2, 1, 0, 3, 2, 3, 2, 2, 2, 2, 2, 3, 3, 0, 5, 0, 1, 3, 0, 1, 2, 2, 2, 3, 2, 1, 1, 3, 0])
     end
@@ -41,8 +40,7 @@ RSpec.describe LeagueStatistics do
       expect(stat_tracker.worst_offense).to eq("Sky Blue FC")
     end
 
-  # MOCK AND STUB PLZ
-    it '#finds_home_games' do
+    it '#games_by_hoa' do
       expect(stat_tracker.games_by_hoa("home")["3"]).to eq([20, 32])
     end
 
