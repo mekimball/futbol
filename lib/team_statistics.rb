@@ -29,7 +29,7 @@ module TeamStatistics
   def find_win_count(team_id)
     find_games_by_team_id(team_id).each_with_object({}) do |game, season_wins|
       if season_wins[game.season].nil?
-        season_wins[game.season] = [0, 0]# total games, wins
+        season_wins[game.season] = [0, 0]
       end
       season_wins[game.season][0] += 1
       if team_win?(team_id, game)

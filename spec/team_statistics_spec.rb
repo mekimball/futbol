@@ -59,7 +59,6 @@ RSpec.describe TeamStatistics do
       expect(stat_tracker.average_win_percentage("6")).to eq 0.46
     end
 
-  #MOCK N STUB
     it "#game_teams_by_id(team_id)" do
       expect(stat_tracker.game_teams_by_id("18")).to be_an(Array)
       expect(stat_tracker.game_teams_by_id("18").length).to eq(28)
@@ -73,7 +72,6 @@ RSpec.describe TeamStatistics do
       expect(stat_tracker.fewest_goals_scored("18")).to eq 0
     end
 
-  #mock and stub
     it "#games_against_rivals(team_id)" do
       expect(stat_tracker.games_against_rivals("18")).to be_a(Hash)
       expect(stat_tracker.games_against_rivals("18").length).to eq(17)

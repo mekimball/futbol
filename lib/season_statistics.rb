@@ -40,7 +40,7 @@ module SeasonStatistics
   def team_shots_by_season(season)
     game_teams_by_season(season).each_with_object({}) do |game_team, teams_shots|
       if teams_shots[game_team.team_id].nil?
-        teams_shots[game_team.team_id]  = [0, 0] #[goals , shots]
+        teams_shots[game_team.team_id]  = [0, 0]
       end
       teams_shots[game_team.team_id][0] += game_team.goals
       teams_shots[game_team.team_id][1] += game_team.shots

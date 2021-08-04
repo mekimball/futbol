@@ -9,7 +9,7 @@
 * [Status](#status)
 * [Contact](#contact)
 ## General info
-This project is  a program dedicated to calculating soccer statistsics. It takes data from csv files and reports statistics and creates a website with the analysis.
+This project is  a program dedicated to calculating soccer statistics. It takes data from csv files and reports statistics and creates a website with the analysis.
 ## Screenshots
 ![Website Picture](https://user-images.githubusercontent.com/83834410/128053930-e7533171-74e3-49e4-981f-ec2d4b1ded3e.png)
 ## Learning Goals
@@ -40,7 +40,7 @@ Then, run it using ruby (note: '$' is not typed).
    ```
    $ cd ../futbol
    ```
-3. Generate then open webpage by entering the following into Terminal:
+3. Generate file, then open webpage by entering the following into Terminal:
    ```
    $ ruby server.rb
    $ open webpage/index.html
@@ -48,13 +48,11 @@ Then, run it using ruby (note: '$' is not typed).
 ## Features
 List of features ready and TODOs for future development
 * Able to calculate league statistics
-* Able to calculate game statitsics
+* Able to calculate game statistics
 * Able to calculate statistics by specific team and season
-## To-do list:
+## Future Enhancements:
 * Make website pretty
 * Allow user to request specific team statistics on website
-## Status
-Project is: _in progress_
 ## Contact
 Created by
 * [@bdempsey864](https://github.com/bdempsey864)

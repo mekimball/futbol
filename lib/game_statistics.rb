@@ -20,10 +20,10 @@ module GameStatistics
   end
 
   def percentage_visitor_wins
-    vistor_wins = @games.find_all do |game|
+    visitor_wins = @games.find_all do |game|
       game.away_goals > game.home_goals
     end.length
-    (vistor_wins.to_f / (games.length)).round(2)
+    (visitor_wins.to_f / (games.length)).round(2)
   end
 
   def percentage_ties
